@@ -1,6 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 
-const token = 'your-token';
+const token = API_KEY;
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: true});
@@ -26,3 +26,18 @@ bot.on('message', (msg) => {
 bot.on('polling_error', (error) => {
   console.log(error);
 });
+
+bot.onText(/\/play/, (msg) => {
+    const chatId = msg.chat.id;
+    const gameUrl = 'https://your-web-hosting-url.com'; // Add game URL
+  
+    const options = {
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: 'Play the Game', url: gameUrl }]
+        ]
+      }
+    };
+  
+    bot.sendMessage(chatId, 'Click the button below to play the game:', options);
+  });
