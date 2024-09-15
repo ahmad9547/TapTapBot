@@ -27,7 +27,7 @@ bot.onText(/\/start/, (msg) => {
 // Handle the '/play' command
 bot.onText(/\/play/, (msg) => {
   const chatId = msg.chat.id;
-  const gameUrl = 'https://your-web-hosting-url.com'; // Add your game URL
+  const gameUrl = 'https://tap-tap-bot.netlify.app/'; // Add your game URL
 
   const options = {
     reply_markup: {
